@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -10,31 +11,48 @@
         <title>Jake's Spot</title>
     </head>
     <body>
-        <header>
-            <h1>Jake's Spot</h1>
-        </header>
-        <main>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <img src="killua.jpg">
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>Hi everyone, my name is Jake.  I'm making this website as an exercise for this lab.  Below you'll find a list of my interests.</h6>
-                    </div>
+        <div class="jumbotron" style="width:100%">
+            <h1 style="margin-left: 10%">Jake's Spot</h1>
+            <p style="margin-left: 10%">A spot to learn about Jake</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <img src="killua.jpg" class="img-rounded img-responsive">
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Interests</h3>
+                <div class="col-lg-8 col-sm-8">
+                    <h2>Hi everyone, my name is Jake.  I'm making this website as an exercise for this lab.  Below you'll find a list of my interests and some posts.</h6>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <h3>Interests</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <ul>
+                        <li>Videogames</li>
+                        <li>Anime</li>
+                        <li>Music</li>
+                        <li>Nature</li>
+                        <li>Animals</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <div class="card border-info">
+                        <img class="card-img-top img-circle" src="killua.jpg" style="width:50px;height:50px">
+                        <div class="card-body">
+                            <h5 class="card-title">Post of the Day</h5>
+                            <p class="card-text">Watched some Hunter x Hunter today.  The Chimera Ant saga has been crazy so far and super long but I'm loving it.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            
-        </main>
-        <footer>
-            <p>This is my footer</p>
-        </footer>
+        </div>
     </body>
 </html>
