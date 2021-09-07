@@ -8,82 +8,119 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jake's Spot</title>
+        <title>My New Website</title>
         <style>
-            h3 {color:blue;}
-            h5 {color:green;}
+            nav a {
+                font-size: large;
+            }
+            nav > a.active {
+                font-size: small;
+            }
+            .little {
+                font-size: small;
+                color: red;
+            }
+            .green {
+                color: green;
+            }
+            #span33 {
+                font-size: small;
+                color: blue;
+            }
+            article {
+                border: 1px red solid;
+            }
+            section {
+                border: 1px blue solid;
+            }
         </style>
     </head>
     <body>
-        <div class="jumbotron" style="width:100%">
-            <h1 style="margin-left: 10%">Jake's Spot</h1>
-            <p style="margin-left: 10%">A spot to learn about Jake</p>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                    <img src="killua.jpg" class="img-rounded img-responsive">
-                </div>
-                <div class="col-lg-8 col-sm-8">
-                    <h2>Hi everyone, my name is Jake.  I'm making this website as an exercise for this lab.  Below you'll find a list of my interests and some posts.</h6>
-                </div>
+        <header>
+            <h1>My First Heading</h1><!-- 1 -->
+            <h6>My First Heading</h6>
+            <nav>
+                <a href="https://www.yahoo.com">
+                    Yahoo  another word third=word
+                </a>
+                <a href="https://www.bing.com">
+                    Bing
+                </a>
+                <a href="https://www.google.com">Google</a>
+                <a class="active" href="base.html">Base Page</a>
+                <span><a class="active" href="base.html">Base Page</a></span>
+                <a href="second.html">Second Page</a>
+                <a href="/absolute.html">Second Page</a>
+                <a href="//www.google.com/absolute.html">Second Page</a>
+            </nav>
+        </header>
+        <main>
+            <a href="https://www.google.com">Google</a>
+            <p>My first paragraph.</p>
+
+            <section>
+                <h2>My second heading.</h2>
+                <p>My second paragraph.</p>
+            </section>
+            <div class="comment">
+                <span class="little">One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span class="little">One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span>One</span><span id="span33">Two</span>
+                <span>One</span><span>Two</span>
+            </div>
+            <div class="comment">
+                <span>One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span>One</span><span>Two</span>
+                <span>One</span><span>Two</span>
             </div>
             <hr>
-            <div class="row">
-                <div class="col-lg-12 col-sm-12">
-                    <h3>Interests</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
+            <ul>
+                <li>Eggs</li>
+                <li>Milk</li>
+                <li>Fruit</li>
+            </ul>
+            <ol>
+                <li>
+                    Store
                     <ul>
-                        <li>Videogames</li>
-                        <li>Anime</li>
-                        <li>Music</li>
-                        <li>Nature</li>
-                        <li>Animals</li>
+                        <li>Eggs</li>
+                        <li>Milk</li>
+                        <li>Fruit</li>
                     </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                    <h3>Posts</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                    <div class="card">
-                        <img class="card-img-top img-circle" src="killua.jpg" style="width:50px;height:50px">
-                        <div class="card-body">
-                            <h5 class="card-title">Post of the Day</h5>
-                            <p class="card-text">Watched some Hunter x Hunter today.  The Chimera Ant saga has been crazy so far and super long but I'm loving it.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                    <div class="card">
-                        <img class="card-img-top img-circle" src="killua.jpg" style="width:50px;height:50px">
-                        <div class="card-body">
-                            <h5 class="card-title">Post of the Day</h5>
-                            <p class="card-text">I've been playing Horizon Zero Dawn and loving it but recently my computer started crashing.  I'm really far into the game already so this really sucks.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                    <div class="card" >
-                        <img class="card-img-top img-circle" src="killua.jpg" style="width:50px;height:50px">
-                        <div class="card-body">
-                            <h5 class="card-title">Post of the Day</h5>
-                            <p class="card-text">I went to Mayfield Park today and saw some peacocks and plants.  The grounds were beautiful and the nature trail had a nice view of the lake.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </li>
+                <li>Bank</li>
+                <li>Post Office</li>
+            </ol>
+            <article class="little green">
+                <p><b>This</b> is <em>about</em> topic one.</p>
+                <p><strong>This</strong> is <i>about</i> topic two.</p>
+                <p>This is about topic three.</p>
+            </article>
+
+            <blockquote>
+                This text was quoted from another source.
+            </blockquote>
+            <code>
+                for(i=0; i<10; i++) {
+
+                }
+            </code>
+            <pre>
+                for(i=0; i<10; i++) {
+
+                }
+            </pre>
+            <img src="https://cdn.cnn.com/cnnnext/dam/assets/210901171417-risk-takers-series-01-cathie-wood---ark-invest-restricted-medium-tease.jpg">
+        </main>
+        <footer>
+            <p>This is my footer</p>
+        </footer>
     </body>
 </html>
