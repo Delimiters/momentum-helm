@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import Profile, { profiles } from './profile.model';
+import Board from './board.model';
+import { BoardComponent } from './board.component';
 
 @Component({
   selector: 'app-root',
