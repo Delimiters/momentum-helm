@@ -17,7 +17,7 @@ export class BoardComponent {
   }
 
   markSpaceAndChangeTurn(index: number, value: string) {
-    if (!value) {
+    if (!value && !this.checkForWinner()) {
       if (this.board.isXTurn) {
         this.board.boardValues[index] = 'X';
       } else {
