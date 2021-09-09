@@ -1,13 +1,3 @@
 <router-outlet></router-outlet>
 
-<!-- <div>
-  <p>{{ firstProfile().firstName }}</p>
-  <p>{{ firstProfileGet.firstName }}</p>
-  <p>{{ profiles[2].firstName.toUpperCase() }}</p>
-  <p>{{ profiles[2].firstName }}</p>
-  <input [value]="'steve' + 10" />
-  <div [innerText]="firstProfileGet.firstName"></div>
-  <button (click)="onClick()">change first name</button>
-</div> -->
-
-<app-board></app-board>
+<app-profile [profile]="profiles[0]" name="Profile Editing Page"></app-profile>
