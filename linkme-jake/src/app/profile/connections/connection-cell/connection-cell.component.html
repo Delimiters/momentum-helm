@@ -1,0 +1,11 @@
+<p>First Name: {{ connectionProfile.firstName }}</p>
+<p>Last Name: {{ connectionProfile.lastName }}</p>
+<span
+  ><button (click)="onConnectClicked()">
+    {{
+      currentUserProfile.connections.includes(connectionProfile)
+        ? "Diconnect"
+        : "Connect"
+    }}
+  </button></span
+>

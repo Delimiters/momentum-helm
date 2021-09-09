@@ -17,6 +17,9 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ExperienceComponent } from './profile/experience/experience.component';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { ConnectionsComponent } from './profile/connections/connections.component';
+import { ConnectionCellComponent } from './profile/connections/connection-cell/connection-cell.component';
+import { ConnectionsHeaderComponent } from './profile/connections/connections-header/connections-header.component';
 
 registerLocaleData(en);
 
@@ -26,6 +29,9 @@ registerLocaleData(en);
     BoardComponent,
     ProfileComponent,
     ExperienceComponent,
+    ConnectionsComponent,
+    ConnectionCellComponent,
+    ConnectionsHeaderComponent,
   ],
   imports: [
     BrowserModule,

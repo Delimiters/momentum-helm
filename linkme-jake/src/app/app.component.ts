@@ -11,4 +11,5 @@ import { BoardComponent } from './board.component';
 export class AppComponent {
   title = 'linkme-jake';
   profiles: Profile[] = profiles;
+  profilesWithoutUser: Profile[] = Array.from(profiles).slice(1);
 }

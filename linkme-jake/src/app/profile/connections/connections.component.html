@@ -1,0 +1,11 @@
+<app-connections-header [userProfile]="userProfile"></app-connections-header>
+
+<ul>
+  <li *ngFor="let profile of otherProfiles">
+    <app-connection-cell
+      [connectionProfile]="profile"
+      [currentUserProfile]="userProfile"
+      (newConnectionEvent)="onNewConnection($event)"
+    ></app-connection-cell>
+  </li>
+</ul>

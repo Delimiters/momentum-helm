@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ContentChild, Input } from '@angular/core';
 import Profile from '../profile.model';
 
 @Component({
@@ -9,6 +9,8 @@ import Profile from '../profile.model';
 export class ProfileComponent {
   @Input() profile!: Profile;
   @Input() name!: string;
+
+
   constructor() {}
 
   onNewExperience(experience: string) {

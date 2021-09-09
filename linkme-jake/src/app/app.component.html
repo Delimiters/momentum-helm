@@ -16,10 +16,14 @@
       <nz-breadcrumb-item>App</nz-breadcrumb-item>
     </nz-breadcrumb> -->
     <div class="inner-content">
-      <app-profile
+      <!-- <app-profile
         [profile]="profiles[0]"
         name="Profile Editing Page"
-      ></app-profile>
+      ></app-profile> -->
+      <app-connections
+        [userProfile]="profiles[0]"
+        [otherProfiles]="profilesWithoutUser"
+      ></app-connections>
     </div>
   </nz-content>
   <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
