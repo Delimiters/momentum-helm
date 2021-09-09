@@ -10,4 +10,8 @@ export class ProfileComponent {
   @Input() profile!: Profile;
   @Input() name!: string;
   constructor() {}
+
+  onNewExperience(experience: string) {
+    this.profile.experience.push(experience);
+  }
 }
