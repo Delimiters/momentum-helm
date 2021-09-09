@@ -13,12 +13,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
-import { ExperienceComponent } from './experience/experience.component';
+import { ExperienceComponent } from './profile/experience/experience.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, BoardComponent, ProfileComponent, ExperienceComponent],
+  declarations: [
+    AppComponent,
+    BoardComponent,
+    ProfileComponent,
+    ExperienceComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
