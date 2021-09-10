@@ -20,6 +20,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { ConnectionsComponent } from './profile/connections/connections.component';
 import { ConnectionCellComponent } from './profile/connections/connection-cell/connection-cell.component';
 import { ConnectionsHeaderComponent } from './profile/connections/connections-header/connections-header.component';
+import { GraphQLModule } from './graphql.module';
 
 registerLocaleData(en);
 
@@ -43,6 +44,7 @@ registerLocaleData(en);
     NzTypographyModule,
     NzButtonModule,
     NzInputModule,
+    GraphQLModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
