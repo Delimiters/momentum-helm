@@ -17,7 +17,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: 'Bearer' + environment.githubToken,
+      authorization: 'Bearer ' + environment.githubToken,
     },
   };
 });
