@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import Profile, { profiles } from './profile.model';
 import Board from './board.model';
 import { BoardComponent } from './board.component';
 
@@ -10,6 +9,6 @@ import { BoardComponent } from './board.component';
 })
 export class AppComponent {
   title = 'linkme-jake';
-  profiles: Profile[] = profiles;
-  profilesWithoutUser: Profile[] = Array.from(profiles).slice(1);
+  // profiles: Profile[] = profiles;
+  // profilesWithoutUser: Profile[] = Array.from(profiles).slice(1);
 }

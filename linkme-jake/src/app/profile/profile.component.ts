@@ -1,5 +1,5 @@
 import { Component, ContentChild, Input } from '@angular/core';
-import Profile from '../profile.model';
+import Profile, { ProfilesService } from '../profiles.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,13 +7,12 @@ import Profile from '../profile.model';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  @Input() profile!: Profile;
+  @Input() profileIndex!: number;
+  profile: Profile = this.profilesService.getProfile(0)!; //i know this is bad practice to use ! here but i figure it's fine since this is just a test project
   @Input() name!: string;
 
-
-  constructor() {}
-
+  constructor(public profilesService: ProfilesService) {}
   onNewExperience(experience: string) {
-    this.profile.experience.push(experience);
+    this.profilesService.addExperience(this.profileIndex, experience);
   }
 }

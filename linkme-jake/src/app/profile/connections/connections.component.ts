@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import Profile from 'src/app/profile.model';
+import Profile from 'src/app/profiles.service';
+import { ProfilesService } from 'src/app/profiles.service';
 
 @Component({
   selector: 'app-connections',
@@ -7,27 +8,28 @@ import Profile from 'src/app/profile.model';
   styleUrls: ['./connections.component.scss'],
 })
 export class ConnectionsComponent {
-  constructor() {}
+  @Input() profileIndex!: number;
 
-  @Input() userProfile!: Profile;
-  @Input() otherProfiles!: Profile[];
+  constructor(
+    public profilesService: ProfilesService //public loginService: LoginService
+  ) {}
 
-  onNewConnection(connection: Profile) {
+  // @Input() userProfile!: Profile;
+  // @Input() otherProfiles!: Profile[];
+
+  getUserProfile() {
+    return this.profilesService.getProfile(this.profileIndex);
+  }
+  getOtherProfiles() {
+    return this.profilesService.getProfiles().slice(1);
+  }
+
+  onNewConnection(connection: number) {
     console.log('New connection being pushed!');
-    if (!this.userProfile.connections.includes(connection)) {
-      this.userProfile.connections.push(connection);
-      connection.connections.push(this.userProfile);
+    if (!this.profilesService.isConnected(this.profileIndex, connection)) {
+      this.profilesService.connect(this.profileIndex, connection);
     } else {
-      let indexToRemoveFromUserConnections =
-        this.userProfile.connections.indexOf(connection);
-      this.userProfile.connections.splice(indexToRemoveFromUserConnections, 1);
-      let indexToRemoveFromConnectionConnections =
-        connection.connections.indexOf(this.userProfile);
-      connection.connections.splice(indexToRemoveFromConnectionConnections, 1);
+      this.profilesService.disconnect(this.profileIndex, connection);
     }
-    console.log(
-      'Connection profile is included in user profile: ' +
-        this.userProfile.connections.includes(connection)
-    );
   }
 }

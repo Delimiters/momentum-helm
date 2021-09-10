@@ -1,2 +1,5 @@
-<h1>{{ userProfile.firstName + " " + userProfile.lastName }}'s Connections</h1>
-<h4>{{ userProfile.connections.length }} connections</h4>
+<h1>
+  {{ getUserProfile()?.firstName + " " + getUserProfile()?.lastName }}'s
+  Connections
+</h1>
+<h4>{{ getUserProfile()?.connections?.length }} connections</h4>

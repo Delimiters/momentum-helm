@@ -1,9 +1,12 @@
-<p>First Name: {{ connectionProfile.firstName }}</p>
-<p>Last Name: {{ connectionProfile.lastName }}</p>
+<p>First Name: {{ this.getConnectionProfile()?.firstName }}</p>
+<p>Last Name: {{ this.getConnectionProfile()?.lastName }}</p>
 <span
   ><button (click)="onConnectClicked()">
     {{
-      currentUserProfile.connections.includes(connectionProfile)
+      this.profilesService.isConnected(
+        currentUserProfileIndex,
+        connectionProfileIndex
+      )
         ? "Diconnect"
         : "Connect"
     }}

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import Profile from 'src/app/profile.model';
+import Profile, { ProfilesService } from 'src/app/profiles.service';
 
 @Component({
   selector: 'app-connection-cell',
@@ -7,15 +7,22 @@ import Profile from 'src/app/profile.model';
   styleUrls: ['./connection-cell.component.scss'],
 })
 export class ConnectionCellComponent {
-  constructor() {}
+  constructor(public profilesService: ProfilesService) {}
 
-  @Input() connectionProfile!: Profile;
-  @Input() currentUserProfile!: Profile;
-  @Output() newConnectionEvent = new EventEmitter<Profile>();
+  @Input() connectionProfileIndex!: number;
+  @Input() currentUserProfileIndex!: number;
+  @Output() newConnectionEvent = new EventEmitter<number>();
+
+  getUserProfile() {
+    return this.profilesService.getProfile(this.currentUserProfileIndex);
+  }
+
+  getConnectionProfile() {
+    return this.profilesService.getProfile(this.connectionProfileIndex);
+  }
 
   onConnectClicked() {
     console.log('Emitting new connection event');
-    this.newConnectionEvent.emit(this.connectionProfile);
+    this.newConnectionEvent.emit(this.connectionProfileIndex);
   }
-
 }

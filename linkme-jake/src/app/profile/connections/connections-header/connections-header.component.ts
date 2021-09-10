@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import Profile from 'src/app/profile.model';
+import Profile, { ProfilesService } from 'src/app/profiles.service';
 
 @Component({
   selector: 'app-connections-header',
@@ -7,7 +7,11 @@ import Profile from 'src/app/profile.model';
   styleUrls: ['./connections-header.component.scss'],
 })
 export class ConnectionsHeaderComponent {
-  @Input() userProfile!: Profile;
+  @Input() userProfileIndex!: number;
 
-  constructor() {}
+  constructor(public profilesService: ProfilesService) {}
+
+  getUserProfile() {
+    return this.profilesService.getProfile(this.userProfileIndex);
+  }
 }

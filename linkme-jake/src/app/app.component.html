@@ -20,11 +20,10 @@
         [profile]="profiles[0]"
         name="Profile Editing Page"
       ></app-profile> -->
-      <app-connections
-        [userProfile]="profiles[0]"
-        [otherProfiles]="profilesWithoutUser"
-      ></app-connections>
+      <app-connections [profileIndex]="1"></app-connections>
     </div>
   </nz-content>
   <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
 </nz-layout>
+
+<app-experience></app-experience>
