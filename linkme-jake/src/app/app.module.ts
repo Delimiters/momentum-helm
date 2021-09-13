@@ -24,6 +24,7 @@ import { ConnectionsHeaderComponent } from './profile/connections/connections-he
 import { GraphQLModule } from './graphql.module';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 registerLocaleData(en);
 
@@ -37,6 +38,7 @@ registerLocaleData(en);
     ConnectionCellComponent,
     ConnectionsHeaderComponent,
     ProfilesComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

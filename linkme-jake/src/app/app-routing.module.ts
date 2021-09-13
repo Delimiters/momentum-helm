@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ConnectionsComponent } from './profile/connections/connections.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   },
   { path: 'connections', component: ConnectionsComponent },
   { path: '', redirectTo: '/connections', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 ];
 
 @NgModule({
