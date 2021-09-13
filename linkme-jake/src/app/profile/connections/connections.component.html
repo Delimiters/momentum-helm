@@ -1,11 +1,11 @@
-<app-connections-header [userProfileIndex]="profileIndex"></app-connections-header>
+<app-connections-header [userProfileIndex]="this.loginService.getCurrentUser()"></app-connections-header>
 
 <ul>
   <li *ngFor="let profile of getOtherProfiles()">
     <app-connection-cell
       [connectionProfileIndex]="profile.id"
-      [currentUserProfileIndex]="profileIndex"
-      (newConnectionEvent)="onNewConnection($event)"
+      [currentUserProfileIndex]="this.loginService.getCurrentUser()"
+      (newConnectionEvent)="onNewConnection($event)" 
     ></app-connection-cell>
   </li>
 </ul>

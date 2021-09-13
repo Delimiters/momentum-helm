@@ -1,12 +1,13 @@
-<router-outlet></router-outlet>
-
 <nz-layout>
   <nz-header>
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
-      <li (click)="changePage('profile')" nz-menu-item>Profiles</li>
-      <li (click)="changePage('connections')" nz-menu-item>Connections</li>
-      <li nz-menu-item>nav 3</li>
+      <li nz-menu-item>
+        <a routerLink="/profiles" routerLinkActive="active">Profiles</a>
+      </li>
+      <li nz-menu-item>
+        <a routerLink="/connections" routerLinkActive="active">Connections</a>
+      </li>
     </ul>
   </nz-header>
   <nz-content>
@@ -33,13 +34,12 @@
       <nz-breadcrumb-item>App</nz-breadcrumb-item>
     </nz-breadcrumb> -->
     <div class="inner-content">
-      <app-profiles
-      *ngIf="this.pageSelected == 'profile'"
-      ></app-profiles>
+      <router-outlet></router-outlet>
+      <!-- <app-profiles *ngIf="this.pageSelected == 'profile'"></app-profiles>
       <app-connections
-      *ngIf="this.pageSelected == 'connections'"
+        *ngIf="this.pageSelected == 'connections'"
         [profileIndex]="this.loginService.getCurrentUser()"
-      ></app-connections>
+      ></app-connections> -->
     </div>
   </nz-content>
   <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>

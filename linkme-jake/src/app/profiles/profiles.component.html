@@ -1,8 +1,24 @@
 <div nz-row [nzGutter]="16">
-  <div nz-col [nzMd]="{ span: 4 }">col-8</div>
-  <div nz-col [nzMd]="{ span: 8 }"></div>
-  <app-profile
+  <div nz-col [nzLg]="{ span: 4 }">
+    <ul nz-menu nzMode="inline">
+      <li
+        *ngFor="let profile of profilesService.getProfiles()"
+        nz-menu-item
+        [nzSelected]="profile.id == selectedProfile"
+        (click)="onClickProfile(profile.id)"
+      >
+        <!-- <a routerLink="/profiles/{{ profile.id }}" routerLinkActive="active">{{ -->
+        <a [routerLink]="['/profiles/', profile.id]" routerLinkActive="active">
+          <!-- <a [routerLink]="'/profiles/' + profile.id" routerLinkActive="active">{{ -->
+          {{ profile.name }}</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div nz-col [nzLg]="{ span: 8 }"></div>
+  <router-outlet></router-outlet>
+  <!-- <app-profile
     [profileIndex]="this.loginService.getCurrentUser()"
     name="Profile Editing Page"
-  ></app-profile>
+  ></app-profile> -->
 </div>

@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import Profile from 'src/app/profiles.service';
 import { ProfilesService } from 'src/app/profiles.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { LoginService } from 'src/app/login.service';
 
 @Component({
   selector: 'app-connections',
@@ -8,17 +10,18 @@ import { ProfilesService } from 'src/app/profiles.service';
   styleUrls: ['./connections.component.scss'],
 })
 export class ConnectionsComponent {
-  @Input() profileIndex!: number;
+  // @Input() profileIndex!: number;
 
   constructor(
-    public profilesService: ProfilesService //public loginService: LoginService
+    public profilesService: ProfilesService,
+    public loginService: LoginService
   ) {}
 
   // @Input() userProfile!: Profile;
   // @Input() otherProfiles!: Profile[];
 
   getUserProfile() {
-    return this.profilesService.getProfile(this.profileIndex);
+    return this.loginService.getCurrentProfile();
   }
   getOtherProfiles() {
     return this.profilesService.getProfiles().slice(1);
@@ -26,10 +29,21 @@ export class ConnectionsComponent {
 
   onNewConnection(connection: number) {
     console.log('New connection being pushed!');
-    if (!this.profilesService.isConnected(this.profileIndex, connection)) {
-      this.profilesService.connect(this.profileIndex, connection);
+    if (
+      !this.profilesService.isConnected(
+        this.loginService.getCurrentUser(),
+        connection
+      )
+    ) {
+      this.profilesService.connect(
+        this.loginService.getCurrentUser(),
+        connection
+      );
     } else {
-      this.profilesService.disconnect(this.profileIndex, connection);
+      this.profilesService.disconnect(
+        this.loginService.getCurrentUser(),
+        connection
+      );
     }
   }
 }
