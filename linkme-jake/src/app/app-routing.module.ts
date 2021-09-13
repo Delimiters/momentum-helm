@@ -24,6 +24,11 @@ const routes: Routes = [
     component: LoginComponent,
   },
   { path: '', redirectTo: '/connections', pathMatch: 'full' },
+  {
+    path: 'reporting',
+    loadChildren: () =>
+      import('./reporting/reporting.module').then((m) => m.ReportingModule),
+  },
   { path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 ];
 
