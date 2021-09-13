@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import Board from './board.model';
 import { BoardComponent } from './board.component';
+import { ProfilesService } from './profiles.service';
+import { LoginService } from './login.service';
+
+type PageName = 'profile' | 'connections';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +13,19 @@ import { BoardComponent } from './board.component';
 })
 export class AppComponent {
   title = 'linkme-jake';
-  // profiles: Profile[] = profiles;
-  // profilesWithoutUser: Profile[] = Array.from(profiles).slice(1);
+
+  pageSelected: PageName = 'profile';
+
+  constructor(
+    public profilesService: ProfilesService,
+    public loginService: LoginService
+  ) {}
+
+  get pageName() {
+    return this.pageSelected;
+  }
+
+  changePage(page: PageName) {
+    this.pageSelected = page;
+  }
 }

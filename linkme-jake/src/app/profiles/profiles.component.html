@@ -1,0 +1,8 @@
+<div nz-row [nzGutter]="16">
+  <div nz-col [nzMd]="{ span: 4 }">col-8</div>
+  <div nz-col [nzMd]="{ span: 8 }"></div>
+  <app-profile
+    [profileIndex]="this.loginService.getCurrentUser()"
+    name="Profile Editing Page"
+  ></app-profile>
+</div>

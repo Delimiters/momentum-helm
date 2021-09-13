@@ -8,11 +8,14 @@ import Profile, { ProfilesService } from '../profiles.service';
 })
 export class ProfileComponent {
   @Input() profileIndex!: number;
-  profile: Profile = this.profilesService.getProfile(0)!; //i know this is bad practice to use ! here but i figure it's fine since this is just a test project
+  //profile: Profile = this.profilesService.getProfile(this.profileIndex)!; //i know this is bad practice to use ! here but i figure it's fine since this is just a test project
   @Input() name!: string;
 
   constructor(public profilesService: ProfilesService) {}
   onNewExperience(experience: string) {
     this.profilesService.addExperience(this.profileIndex, experience);
+  }
+  getCurrentProfile() {
+    return this.profilesService.getProfile(this.profileIndex);
   }
 }

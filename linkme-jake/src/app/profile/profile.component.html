@@ -1,11 +1,11 @@
 <div>
   <h1 nz-typography>{{ name }}</h1>
-  <p>First Name: {{ profile.firstName }}</p>
-  <p>Last Name: {{ profile.lastName }}</p>
+  <p>First Name: {{ this.getCurrentProfile()!.firstName }}</p>
+  <p>Last Name: {{ this.getCurrentProfile()!.lastName }}</p>
 </div>
 <div>
   <app-experience
-    [experience]="this.profile.experience"
+    [experience]="this.getCurrentProfile()!.experience"
     (newExperienceEvent)="onNewExperience($event)"
   ></app-experience>
 </div>

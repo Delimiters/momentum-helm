@@ -15,19 +15,51 @@ export default class Profile {
   }
 }
 
+const PROFILES_KEY = 'profiles';
+
+function decodeProfile(json: Profile): Profile {
+  let profile = Object.create(Profile.prototype);
+  return Object.assign(profile, json);
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class ProfilesService {
-  private profiles = [
-    new Profile(1, 'David', 'Rasch', 'Mr.', [
-      'Developer 2020',
-      'Angular Instructor 2021',
-    ]),
-    new Profile(2, 'Alan', 'Cox', 'Mr.', ['CTO 2020-2021']),
-    new Profile(3, 'Dee', 'Meyers', 'Ms.', ['Student 2020', 'Developer 2021']),
-  ];
+  profiles: Profile[] = [];
+  getDefaultProfiles() {
+    return [
+      new Profile(1, 'David', 'Rasch', 'Mr.', [
+        'Developer 2020',
+        'Angular Instructor 2021',
+      ]),
+      new Profile(2, 'Alan', 'Cox', 'Mr.', ['CTO 2020-2021']),
+      new Profile(3, 'Dee', 'Meyers', 'Ms.', [
+        'Student 2020',
+        'Developer 2021',
+      ]),
+    ];
+  }
+
+  constructor() {
+    this.load();
+  }
+
+  load() {
+    this.profiles = JSON.parse(localStorage.getItem(PROFILES_KEY) || '[]').map(
+      (obj: Profile) => decodeProfile(obj)
+    );
+    if (this.profiles.length == 0) {
+      this.profiles = this.getDefaultProfiles();
+    }
+  }
+
+  save() {
+    localStorage.setItem(PROFILES_KEY, JSON.stringify(this.profiles));
+  }
+
   getProfiles() {
+    console.log(this.profiles);
     return this.profiles;
   }
   addProfile(profile: Profile) {
@@ -42,7 +74,9 @@ export class ProfilesService {
     const profile = this.getProfile(index);
 
     if (profile) {
-      return profile.experience.push(experience);
+      const exp = profile.experience.push(experience);
+      this.save();
+      return exp;
     } else {
       throw 'Profile does not exist';
     }
@@ -60,6 +94,7 @@ export class ProfilesService {
     if (!secondProfile.connections.find((num) => num == first)) {
       secondProfile.connections.push(first);
     }
+    this.save();
   }
   disconnect(first: number, second: number) {
     const firstProfile = this.getProfile(first);
@@ -78,6 +113,7 @@ export class ProfilesService {
     if (found >= 0) {
       secondProfile.connections.splice(found, 1);
     }
+    this.save();
   }
   isConnected(first: number, second: number) {
     const firstProfile = this.getProfile(first);
