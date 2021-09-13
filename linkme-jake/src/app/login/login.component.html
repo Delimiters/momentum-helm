@@ -1,0 +1,9 @@
+<ul nz-menu nzMode="inline">
+    <li
+      *ngFor="let profile of profilesService.getProfiles()"
+      nz-menu-item
+      [nzSelected]="profile.id == selectedProfile"
+      (click)="onClickProfile(profile.id)"
+    > {{profile.name}} </li>
+</ul>
+<button (click)='onLoginClicked()'>Login</button>

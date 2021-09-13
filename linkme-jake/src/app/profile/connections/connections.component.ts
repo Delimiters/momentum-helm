@@ -24,7 +24,7 @@ export class ConnectionsComponent {
     return this.loginService.getCurrentProfile();
   }
   getOtherProfiles() {
-    return this.profilesService.getProfiles().slice(1);
+    return this.loginService.getOtherProfiles();
   }
 
   onNewConnection(connection: number) {

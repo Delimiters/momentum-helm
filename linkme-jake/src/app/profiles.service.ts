@@ -70,6 +70,7 @@ export class ProfilesService {
     console.log(this.profiles);
     return this.profiles.find((profile) => profile.id == index);
   }
+
   addExperience(index: number, experience: string) {
     const profile = this.getProfile(index);
 
